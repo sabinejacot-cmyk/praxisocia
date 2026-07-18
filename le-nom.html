@@ -5,16 +5,16 @@
   <script>document.documentElement.className += " js";</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Le nom – PraxiSocIA · Dre Sabine Jacot</title>
-  <meta name="description" content="PraxiSocIA réunit trois termes : la praxis (l'action informée par la réflexion), la sociologie et l'intelligence artificielle. Le sens du nom." />
+  <meta name="description" content="PraxiSocIA réunit trois termes : la praxis (l'action informée par la réflexion), la sociologie et l'intelligence artificielle." />
   <meta name="author" content="Dre Sabine Jacot" />
   <meta property="og:title" content="Le nom – PraxiSocIA · Dre Sabine Jacot" />
-  <meta property="og:description" content="PraxiSocIA réunit trois termes : la praxis (l'action informée par la réflexion), la sociologie et l'intelligence artificielle. Le sens du nom." />
+  <meta property="og:description" content="PraxiSocIA réunit trois termes : la praxis (l'action informée par la réflexion), la sociologie et l'intelligence artificielle." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="fr_CH" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -28,10 +28,16 @@
         </button>
         <ul class="nav-links">
           <li><a href="/">Accueil</a></li>
-          <li><a href="le-nom.html">Le nom</a></li>
-          <li><a href="parcours.html">Parcours</a></li>
-          <li><a href="approche-ia.html">Approche</a></li>
           <li><a href="prestations.html">Prestations</a></li>
+          <li class="has-dropdown active">
+            <button class="dropbtn" aria-haspopup="true" aria-expanded="false">Démarche</button>
+            <ul class="dropdown">
+              <li><a href="presentation.html">Présentation</a></li>
+              <li><a href="le-nom.html">Le nom</a></li>
+              <li><a href="approche-ia.html">Une approche sociologique de l'IA</a></li>
+              <li><a href="parcours.html">Parcours</a></li>
+            </ul>
+          </li>
           <li><a href="publics.html">Publics</a></li>
           <li><a href="contact.html" class="btn btn--primary">Contact</a></li>
         </ul>
@@ -40,19 +46,19 @@
   </header>
 
   <section class="page-hero">
-    <div class="wrap reveal">
+    <div class="wrap narrow reveal">
       <span class="eyebrow">Le nom</span>
       <h1>PraxiSocIA</h1>
     </div>
   </section>
 
   <section class="section">
-    <div class="wrap reveal">
+    <div class="wrap narrow reveal">
       <div class="prose">
         <p class="lead">PraxiSocIA réunit les trois termes de cette pratique.</p>
-        <p><em>Praxis</em> désigne l'action informée par la réflexion. Le mot vient du grec : chez Aristote, la <em>praxis</em> est l'agir proprement humain, distinct de la fabrication (<em>poièsis</em>) comme de la contemplation (<em>theôria</em>), et qui porte en lui-même sa fin. Marx en déplace le sens vers l'activité par laquelle on transforme le monde autant qu'on se transforme soi-même, dans l'unité de la théorie et de la pratique. Le nom revendique cet héritage : une connaissance qui ne reste pas séparée de l'action mais s'y accomplit.</p>
-        <p><em>Soc</em>, la sociologie : la discipline dans tout son spectre, libre de se porter sur n'importe quel objet social. C'est depuis elle que je lis les situations, en cherchant ce qui se joue sous la surface – les questions d'accès et d'inégalité, les décisions qui engagent les collectifs, la manière dont les liens se nouent, dont les usages installent des pratiques et dont ceux-ci mettent en jeu des valeurs et la cohésion sociale.</p>
-        <p><em>IA</em>, enfin, l'intelligence artificielle. Le sigle s'achève sur elle sans hasard : elle est aujourd'hui le terrain privilégié de mes formations comme de mes recherches. Avant d'être un outil, elle est à mes yeux un <em>fait social total</em> : elle engage les inégalités d'accès et l'appropriation, la souveraineté et l'esprit critique, les savoirs tacites que le métier mobilise, le rapport au savoir et à l'apprentissage, jusqu'aux risques de dépendance et d'atrophie cognitive. C'est ce qui retient mon intérêt : un même objet où se rejouent, concentrées, des questions que la sociologie rencontre ailleurs plus dispersées.</p>
+        <p><strong><em>Praxis</em></strong> désigne <strong>l'action informée par la réflexion</strong>. Le mot vient du grec : chez Aristote, la <em>praxis</em> est l'agir proprement humain, distinct de la fabrication (<em>poièsis</em>) comme de la contemplation (<em>theôria</em>), et qui porte en lui-même sa fin. Marx en déplace le sens vers l'activité par laquelle on transforme le monde autant qu'on se transforme soi-même, dans l'unité de la théorie et de la pratique. Le nom revendique cet héritage : une connaissance qui ne reste pas séparée de l'action mais s'y accomplit.</p>
+        <p><strong><em>Soc</em></strong>, la sociologie : <strong>la discipline dans tout son spectre</strong>, libre de se porter sur n'importe quel objet social. C'est depuis elle que je lis les situations, en cherchant ce qui se joue sous la surface – les questions d'accès et d'inégalité, les décisions qui engagent les collectifs, la manière dont les liens se nouent, dont les usages installent des pratiques et dont ceux-ci mettent en jeu des valeurs et la cohésion sociale.</p>
+        <p><strong><em>IA</em></strong>, enfin, l'intelligence artificielle. Le sigle s'achève sur elle sans hasard : elle est aujourd'hui le terrain privilégié de mes formations comme de mes recherches. Avant d'être un outil, elle est à mes yeux un <strong><em>fait social total</em></strong> : elle engage les inégalités d'accès et l'appropriation, la souveraineté et l'esprit critique, les savoirs tacites que le métier mobilise, le rapport au savoir et à l'apprentissage, jusqu'aux risques de dépendance et d'atrophie cognitive. C'est ce qui retient mon intérêt : un même objet où se rejouent, concentrées, des questions que la sociologie rencontre ailleurs plus dispersées.</p>
       </div>
     </div>
   </section>
@@ -62,16 +68,15 @@
       <div class="footer-grid">
         <div>
           <div class="footer-brand">PraxiSoc<span class="ia">IA</span></div>
-          <p class="footer-sign">« Comprendre et diagnostiquer, former et transmettre, évaluer et accompagner l'action. »</p>
+          <p class="footer-place">Dre Sabine Jacot · Suisse romande</p>
         </div>
         <div>
           <h4>Navigation</h4>
           <ul class="footer-links">
             <li><a href="/">Accueil</a></li>
-            <li><a href="le-nom.html">Le nom</a></li>
-            <li><a href="parcours.html">Parcours</a></li>
-            <li><a href="approche-ia.html">Une approche sociologique de l'IA</a></li>
             <li><a href="prestations.html">Prestations</a></li>
+            <li><a href="presentation.html">Présentation</a></li>
+            <li><a href="parcours.html">Parcours</a></li>
             <li><a href="publics.html">À qui je m'adresse</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
@@ -87,7 +92,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© <span id="year">2026</span> PraxiSocIA · Dre Sabine Jacot · Suisse romande</span>
+        <span>© <span id="year">2026</span> PraxiSocIA – Dre Sabine Jacot · Suisse romande</span>
         <span><a href="mentions-legales.html">Mentions légales &amp; confidentialité</a></span>
       </div>
     </div>

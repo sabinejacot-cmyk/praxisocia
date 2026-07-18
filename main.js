@@ -20,6 +20,23 @@
     });
   }
 
+  /* Menu déroulant « Démarche » (clic + accessible) */
+  document.querySelectorAll(".dropbtn").forEach(function (btn) {
+    var menu = btn.nextElementSibling;
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var open = menu.classList.toggle("open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  });
+  document.addEventListener("click", function () {
+    document.querySelectorAll(".dropdown.open").forEach(function (m) {
+      m.classList.remove("open");
+      var b = m.previousElementSibling;
+      if (b) b.setAttribute("aria-expanded", "false");
+    });
+  });
+
   /* Apparition au défilement (progressive : contenu visible sans JS) */
   var revealEls = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && revealEls.length) {

@@ -5,16 +5,16 @@
   <script>document.documentElement.className += " js";</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prestations – recherche, formation, conseil, gestion de projet · PraxiSocIA</title>
-  <meta name="description" content="Quatre pôles : recherche appliquée et évaluation, formation d'adultes et conférences, conseil et accompagnement, gestion de projet. Des interventions sur mesure, à partir d'un diagnostic." />
+  <meta name="description" content="Quatre pôles : recherche appliquée et évaluation, formation d'adultes et conférences, conseil et accompagnement, gestion de projet. Des interventions sur mesure." />
   <meta name="author" content="Dre Sabine Jacot" />
   <meta property="og:title" content="Prestations – recherche, formation, conseil, gestion de projet · PraxiSocIA" />
-  <meta property="og:description" content="Quatre pôles : recherche appliquée et évaluation, formation d'adultes et conférences, conseil et accompagnement, gestion de projet. Des interventions sur mesure, à partir d'un diagnostic." />
+  <meta property="og:description" content="Quatre pôles : recherche appliquée et évaluation, formation d'adultes et conférences, conseil et accompagnement, gestion de projet. Des interventions sur mesure." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="fr_CH" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -28,10 +28,16 @@
         </button>
         <ul class="nav-links">
           <li><a href="/">Accueil</a></li>
-          <li><a href="le-nom.html">Le nom</a></li>
-          <li><a href="parcours.html">Parcours</a></li>
-          <li><a href="approche-ia.html">Approche</a></li>
-          <li><a href="prestations.html">Prestations</a></li>
+          <li><a href="prestations.html" class="active">Prestations</a></li>
+          <li class="has-dropdown">
+            <button class="dropbtn" aria-haspopup="true" aria-expanded="false">Démarche</button>
+            <ul class="dropdown">
+              <li><a href="presentation.html">Présentation</a></li>
+              <li><a href="le-nom.html">Le nom</a></li>
+              <li><a href="approche-ia.html">Une approche sociologique de l'IA</a></li>
+              <li><a href="parcours.html">Parcours</a></li>
+            </ul>
+          </li>
           <li><a href="publics.html">Publics</a></li>
           <li><a href="contact.html" class="btn btn--primary">Contact</a></li>
         </ul>
@@ -43,58 +49,51 @@
     <div class="wrap reveal">
       <span class="eyebrow">Prestations</span>
       <h1>Quatre pôles qui se nourrissent</h1>
-      <p class="lead">Mes prestations s'organisent en quatre pôles qui se nourrissent mutuellement : la recherche alimente les formations, les terrains de formation et de conseil font émerger de nouvelles questions. Chaque mandat commence par une même étape : le diagnostic – analyse du public, des besoins et du contexte – à partir duquel se définissent le type d'intervention et la prestation la plus adaptée.</p>
+      <p class="lead">Mes prestations s'organisent en quatre pôles qui se nourrissent mutuellement : la recherche alimente les formations, les terrains de formation et de conseil font émerger de nouvelles questions. Chaque mandat commence par une même étape : <strong>le diagnostic</strong> – analyse du public, des besoins et du contexte – à partir duquel se définissent le type d'intervention et la prestation la plus adaptée.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap">
       <div class="poles">
-      <div class="pole reveal">
+      <div class="pole reveal" id="recherche">
         <div class="pole-num">01</div>
-        <div>
+        <div class="prose">
           <h3>Recherche appliquée et évaluation</h3>
-          <p>Je conduis des mandats de recherche pour des collectivités publiques, des institutions et des organisations privées : analyses de besoins, enquêtes de terrain, études d'impact, évaluations de dispositifs et de programmes. Je travaille en méthodes mixtes – entretiens, focus groupes, observations, questionnaires, analyses qualitatives et quantitatives – et je restitue les résultats sous une forme directement utilisable, pour la décision comme pour la stratégie, avec des recommandations ajustées à la problématique de recherche ou au besoin formulé. La recherche-action occupe une place particulière dans ma pratique : associer les parties prenantes à l'enquête, c'est produire des connaissances plus proches des réalités de terrain et des recommandations mieux appropriées.</p>
+          <p>Je conduis des mandats de recherche pour des collectivités publiques, des institutions et des organisations privées : <strong>analyses de besoins, enquêtes de terrain, études d'impact, évaluations de dispositifs et de programmes</strong>. Je travaille en méthodes mixtes – entretiens, focus groupes, observations, questionnaires, analyses qualitatives et quantitatives – et je restitue les résultats sous une forme directement utilisable, pour la décision comme pour la stratégie, avec des recommandations ajustées à la problématique de recherche ou au besoin formulé. La <strong>recherche-action</strong> occupe une place particulière dans ma pratique : associer les parties prenantes à l'enquête, c'est produire des connaissances plus proches des réalités de terrain et des recommandations mieux appropriées.</p>
         </div>
       </div>
-      <div class="pole reveal">
+      <div class="pole reveal" id="formation">
         <div class="pole-num">02</div>
-        <div>
+        <div class="prose">
           <h3>Formation d'adultes et conférences</h3>
-          <p>Formatrice d'adultes certifiée FSEA, je conçois et j'anime des formations sur l'intelligence artificielle et son intégration dans les pratiques professionnelles ; mais aussi, plus largement, sur l'organisation d'entreprise et l'innovation, les méthodes de recherche, le positionnement stratégique et la gestion de projet – ou sur d'autres besoins à définir ensemble. Mes formations partent de l'expérience des participant·e·s et se construisent sur mesure, du module d'initiation au parcours approfondi. J'y mobilise des outils pédagogiques que j'ai moi-même développés : CLÉ·IA, qui structure la formulation des requêtes pour en faire une compétence durable plutôt qu'une recette ; ma boussole critique, qui outille l'esprit critique face aux productions de l'IA ; et DÉCLIC, qui aide les professionnel·le·s à expliciter leurs savoirs implicites avant d'engager le travail avec la machine. Je donne également des conférences, de la sensibilisation grand public à l'intervention spécialisée, et j'interviens dans des parcours certifiants.</p>
+          <p>Formatrice d'adultes certifiée FSEA, je conçois et j'anime des formations sur <strong>l'intelligence artificielle et son intégration dans les pratiques professionnelles</strong> ; mais aussi, plus largement, sur l'organisation d'entreprise et l'innovation, les méthodes de recherche, le positionnement stratégique et la gestion de projet – ou sur d'autres besoins à définir ensemble. Mes formations partent de l'expérience des participant·e·s et se construisent <strong>sur mesure</strong>, du module d'initiation au parcours approfondi. J'y mobilise des outils pédagogiques que j'ai moi-même développés : <strong>CLÉ·IA</strong>, qui structure la formulation des requêtes pour en faire une compétence durable plutôt qu'une recette ; ma <strong>boussole critique</strong>, qui outille l'esprit critique face aux productions de l'IA ; et <strong>DÉCLIC</strong>, qui aide les professionnel·le·s à expliciter leurs savoirs implicites avant d'engager le travail avec la machine. Je donne également des <strong>conférences</strong>, de la sensibilisation grand public à l'intervention spécialisée, et j'interviens dans des parcours certifiants.</p>
         </div>
       </div>
-      <div class="pole reveal">
+      <div class="pole reveal" id="conseil">
         <div class="pole-num">03</div>
-        <div>
+        <div class="prose">
           <h3>Conseil et accompagnement</h3>
-          <p>J'accompagne les organisations dans l'intégration de l'IA : diagnostic des usages et des besoins, identification des cas d'usage pertinents, appui à la définition d'une stratégie et de règles internes – éthique et protection des données comprises, y compris le recours à des solutions souveraines lorsque le contexte l'exige. J'accompagne aussi les professionnel·le·s individuellement, sous forme de coaching, dans l'adoption des outils et, si la demande s'y prête, l'automatisation de processus métier. Je conçois mon rôle comme un appui ponctuel dans un processus d'apprentissage : mon intervention vise la montée en compétences et l'autonomie.</p>
+          <p>J'accompagne les organisations dans <strong>l'intégration de l'IA</strong> : diagnostic des usages et des besoins, identification des cas d'usage pertinents, appui à la définition d'une stratégie et de règles internes – éthique et protection des données comprises, y compris le recours à des solutions souveraines lorsque le contexte l'exige. J'accompagne aussi les professionnel·le·s individuellement, sous forme d'<strong>accompagnement individuel</strong>, dans l'adoption des outils et, si la demande s'y prête, l'automatisation de processus métier. Je conçois mon rôle comme un appui ponctuel dans un processus d'apprentissage : mon intervention vise <strong>la montée en compétences et l'autonomie</strong>.</p>
         </div>
       </div>
-      <div class="pole reveal">
+      <div class="pole reveal" id="projet">
         <div class="pole-num">04</div>
-        <div>
+        <div class="prose">
           <h3>Gestion de projet</h3>
-          <p>Je pilote des projets et des mandats multipartenaires : coordination des acteur·trice·s, gestion de projet et des budgets, suivi des livrables et des délais, recherche de fonds et montage de dossiers, réponse à des appels d'offres. Cette compétence s'est construite au fil de près de vingt années de projets académiques et de terrain ; elle peut s'exercer comme prestation propre ou en appui des trois autres pôles.</p>
+          <p>Je pilote des <strong>projets et des mandats multipartenaires</strong> : coordination des acteur·trice·s, gestion de projet et des budgets, suivi des livrables et des délais, montage de dossiers et réponse à des appels d'offres. Cette compétence s'est construite au fil de près de vingt années de projets académiques et de terrain ; elle peut s'exercer comme prestation propre ou en appui des trois autres pôles.</p>
         </div>
       </div>
       </div>
     </div>
   </section>
 
-  <section class="band">
-    <div class="wrap reveal">
-      <span class="band-eyebrow">Le point de départ</span>
-      <p>Chaque mandat commence par une même étape : le diagnostic – analyse du public, des besoins et du contexte – à partir duquel se définissent le type d'intervention et la prestation la plus adaptée.</p>
-    </div>
-  </section>
-
-  <section class="section section--alt">
+  <section class="section section--paper2">
     <div class="wrap reveal">
       <span class="eyebrow">Formats &amp; modalités</span>
       <hr class="rule--terra" />
       <div class="prose">
-        <p>Mes interventions prennent des formes ajustables : journées et demi-journées de formation, modules combinables en parcours progressifs, conférences, ateliers, accompagnements individuels ou d'équipe. Chaque formation débouche sur des livrables concrets et réutilisables – bibliothèque de requêtes, grilles de décision, chartes d'usage – et sur la pratique de cas d'usage propres au métier des participant·e·s : cartographier ses tâches et ses savoirs, identifier où l'IA a du sens dans son activité, puis s'exercer sur ses propres situations de travail. L'objectif dépasse la séance elle-même : développer une littératie IA durable – comprendre ce que ces systèmes font, ce qu'ils ne font pas et ce qu'on peut leur confier – qui soutient la montée en compétences bien au-delà de la formation.</p>
+        <p>Mes interventions prennent des formes ajustables : journées et demi-journées de formation, modules combinables en parcours progressifs, conférences, ateliers, accompagnements individuels ou d'équipe. Chaque formation débouche sur des <strong>livrables concrets et réutilisables</strong> – bibliothèque de requêtes, grilles de décision, chartes d'usage – et sur la <strong>pratique de cas d'usage</strong> propres au métier des participant·e·s : cartographier ses tâches et ses savoirs, identifier où l'IA a du sens dans son activité, puis s'exercer sur ses propres situations de travail. L'objectif dépasse la séance elle-même : développer une <strong>littératie IA</strong> durable – comprendre ce que ces systèmes font, ce qu'ils ne font pas et ce qu'on peut leur confier – qui soutient la montée en compétences bien au-delà de la formation.</p>
         <p>J'interviens en direct ou par l'intermédiaire d'institutions de formation partenaires, selon les exigences du commanditaire ; les modalités se définissent au cas par cas, à partir du diagnostic initial.</p>
       </div>
     </div>
@@ -105,16 +104,15 @@
       <div class="footer-grid">
         <div>
           <div class="footer-brand">PraxiSoc<span class="ia">IA</span></div>
-          <p class="footer-sign">« Comprendre et diagnostiquer, former et transmettre, évaluer et accompagner l'action. »</p>
+          <p class="footer-place">Dre Sabine Jacot · Suisse romande</p>
         </div>
         <div>
           <h4>Navigation</h4>
           <ul class="footer-links">
             <li><a href="/">Accueil</a></li>
-            <li><a href="le-nom.html">Le nom</a></li>
-            <li><a href="parcours.html">Parcours</a></li>
-            <li><a href="approche-ia.html">Une approche sociologique de l'IA</a></li>
             <li><a href="prestations.html">Prestations</a></li>
+            <li><a href="presentation.html">Présentation</a></li>
+            <li><a href="parcours.html">Parcours</a></li>
             <li><a href="publics.html">À qui je m'adresse</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
@@ -130,7 +128,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© <span id="year">2026</span> PraxiSocIA · Dre Sabine Jacot · Suisse romande</span>
+        <span>© <span id="year">2026</span> PraxiSocIA – Dre Sabine Jacot · Suisse romande</span>
         <span><a href="mentions-legales.html">Mentions légales &amp; confidentialité</a></span>
       </div>
     </div>
