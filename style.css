@@ -52,7 +52,7 @@ a:hover{color:var(--terra-deep);border-color:var(--terra-deep);}
 .section--paper2{background:var(--paper-2);}
 .prose{max-width:var(--measure);}
 .prose.center{margin-left:auto;margin-right:auto;}
-.prose p{margin-bottom:1.35em;text-align:left;}
+.prose p{margin-bottom:1.35em;text-align:justify;-webkit-hyphens:auto;hyphens:auto;}
 .prose p:last-child{margin-bottom:0;}
 .center{text-align:center;}
 
@@ -213,6 +213,9 @@ form textarea{min-height:150px;resize:vertical;}
 @media(max-width:900px){
   .contact-grid{grid-template-columns:1fr;gap:38px;}
   .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:640px){
+  .prose p{text-align:left;-webkit-hyphens:none;hyphens:none;}
 }
 @media(max-width:720px){
   body{font-size:17px;}
