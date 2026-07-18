@@ -204,6 +204,30 @@ form textarea{min-height:150px;resize:vertical;}
 .footer-bottom a{color:#9fb0ad;border:0;}
 .footer-bottom a:hover{color:#fff;}
 
+/* ---------- Témoignages ---------- */
+.testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+.testi-card,.testi-rotator .testi{background:var(--mint);border-radius:var(--radius);
+  padding:30px 30px 24px;margin:0;}
+.testi-card blockquote,.testi-rotator blockquote{margin:0 0 14px;font-family:var(--serif);
+  font-style:italic;font-size:1.16rem;line-height:1.46;color:var(--ink);}
+.testi-card figcaption,.testi-rotator figcaption{font-family:var(--sans);font-size:.84rem;
+  font-weight:600;letter-spacing:.01em;color:var(--terra-deep);}
+.testi-rotator{max-width:52rem;margin:0 auto;}
+.testi-rotator .testi{text-align:center;padding:46px 40px 36px;}
+.testi-rotator .testi blockquote{font-size:1.34rem;line-height:1.44;}
+.js .testi-rotator .testi{display:none;}
+.js .testi-rotator .testi.on{display:block;animation:testifade .6s ease;}
+@keyframes testifade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+.google-line{margin-top:22px;text-align:center;font-family:var(--sans);font-size:.95rem;}
+
+/* ---------- Photos ---------- */
+.home-hero-inner{display:grid;grid-template-columns:1fr;gap:38px;align-items:center;}
+.home-hero-inner.has-photo{grid-template-columns:1.15fr .85fr;}
+.home-hero-photo{margin:0;}
+.home-hero-photo img,.portrait-photo img{width:100%;height:auto;display:block;border-radius:var(--radius);
+  box-shadow:0 20px 46px -28px rgba(39,54,56,.5);}
+.portrait-photo{margin:0;max-width:320px;}
+
 /* ---------- Reveal ---------- */
 .js .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
 .js .reveal.visible{opacity:1;transform:none;}
@@ -220,7 +244,8 @@ form textarea{min-height:150px;resize:vertical;}
 @media(max-width:720px){
   body{font-size:17px;}
   .section{padding:54px 0;}
-  .grid-2,.grid-4,.portes,.reperes{grid-template-columns:1fr;}
+  .grid-2,.grid-4,.portes,.reperes,.testi-grid{grid-template-columns:1fr;}
+  .home-hero-inner.has-photo{grid-template-columns:1fr;}
   .nav-toggle{display:flex;}
   .nav-links{position:fixed;inset:74px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;
     background:var(--paper);border-bottom:1px solid var(--line);padding:10px 26px 22px;

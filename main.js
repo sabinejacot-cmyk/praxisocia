@@ -111,6 +111,18 @@
     });
   }
 
+  /* Rotation des témoignages sur l'accueil */
+  document.querySelectorAll("[data-rotate]").forEach(function (r) {
+    var items = r.querySelectorAll(".testi");
+    if (items.length < 2) return;
+    var i = 0;
+    setInterval(function () {
+      items[i].classList.remove("on");
+      i = (i + 1) % items.length;
+      items[i].classList.add("on");
+    }, 6500);
+  });
+
   /* Année du pied de page */
   var y = document.querySelector("#year");
   if (y) {
