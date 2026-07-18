@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <script>document.documentElement.className += " js";</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Dre Sabine Jacot | PraxiSocIA</title>
+  <meta name="description" content="Contactez PraxiSocIA — Dre Sabine Jacot, sociologue et formatrice certifiée FSEA en Suisse romande. Formation IA, recherche appliquée, conseil et gestion de projet." />
+  <meta property="og:title" content="Contact — PraxiSocIA" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_CH" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a href="index.html" class="brand">
+        <span>Praxi<span class="ia">Soc<span class="ia">IA</span></span>
+          <small>Sociologie appliquée &amp; IA</small>
+        </span>
+      </a>
+      <nav aria-label="Navigation principale">
+        <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="prestations.html">Prestations</a></li>
+          <li><a href="recherche.html">Recherche</a></li>
+          <li><a href="contact.html" class="btn btn--primary">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="wrap reveal">
+      <span class="eyebrow">Contact</span>
+      <h1>Parlons de votre projet</h1>
+      <p class="lead">Une question, un besoin de formation, un mandat de recherche ou de conseil ? Écrivez-moi — je réponds personnellement.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="contact-grid">
+        <!-- Coordonnées -->
+        <div class="contact-info reveal">
+          <span class="eyebrow">Coordonnées</span>
+          <h2>PraxiSocIA</h2>
+          <p style="color:var(--ink-soft);">Dre Sabine Jacot — sociologue, formatrice d'adultes certifiée FSEA, chargée d'enseignement.</p>
+
+          <div class="info-item">
+            <div class="ico">✉</div>
+            <div>
+              <strong>E-mail</strong>
+              <a href="mailto:contact@drsabinejacot.ch">contact@drsabinejacot.ch</a>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="ico">🌐</div>
+            <div>
+              <strong>Site</strong>
+              <span>drsabinejacot.ch</span>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="ico">📍</div>
+            <div>
+              <strong>Territoire</strong>
+              <span>Suisse romande — contexte plurilingue et pluri-institutionnel</span>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="ico">✦</div>
+            <div>
+              <strong>Champs d'intervention</strong>
+              <span>Formation · Recherche appliquée · Conseil &amp; accompagnement · Gestion de projet</span>
+            </div>
+          </div>
+
+          <p style="margin-top:24px;font-family:var(--serif);font-style:italic;color:var(--navy);font-size:1.15rem;">« Comprendre pour transformer. Former pour autonomiser. Chercher pour agir. »</p>
+        </div>
+
+        <!-- Formulaire -->
+        <div class="reveal">
+          <div class="card">
+            <h2 style="margin-top:0;">Écrivez-moi</h2>
+            <!--
+              Formulaire prêt à l'emploi.
+              Par défaut, il ouvre votre logiciel de messagerie (mailto).
+              Pour un envoi automatique côté serveur, remplacez action="#"
+              par l'URL d'un service (ex. Formspree) ou le script de contact Infomaniak.
+            -->
+            <form id="contact-form" action="#" method="post">
+              <div class="field">
+                <label for="nom">Nom et prénom *</label>
+                <input type="text" id="nom" name="nom" required autocomplete="name" />
+              </div>
+              <div class="field">
+                <label for="email">E-mail *</label>
+                <input type="email" id="email" name="email" required autocomplete="email" />
+              </div>
+              <div class="field">
+                <label for="organisation">Organisation</label>
+                <input type="text" id="organisation" name="organisation" autocomplete="organization" />
+              </div>
+              <div class="field">
+                <label for="sujet">Objet</label>
+                <select id="sujet" name="sujet">
+                  <option>Formation</option>
+                  <option>Recherche appliquée</option>
+                  <option>Conseil &amp; accompagnement</option>
+                  <option>Gestion de projet</option>
+                  <option>Enseignement</option>
+                  <option>Autre</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="message">Votre message *</label>
+                <textarea id="message" name="message" required placeholder="Décrivez brièvement votre besoin ou votre projet…"></textarea>
+              </div>
+              <button type="submit" class="btn btn--primary">Envoyer le message</button>
+              <p class="form-status" role="status" aria-live="polite"></p>
+              <p class="form-note">* Champs obligatoires. Vos données ne sont utilisées que pour répondre à votre demande.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Praxi<span class="ia">SocIA</span></div>
+          <p>Sociologie appliquée &amp; intelligence artificielle.<br />Comprendre pour transformer. Former pour autonomiser. Chercher pour agir.</p>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="prestations.html">Prestations</a></li>
+            <li><a href="recherche.html">Recherche</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:contact@drsabinejacot.ch">contact@drsabinejacot.ch</a></li>
+            <li>Suisse romande</li>
+            <li>Dre Sabine Jacot</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> PraxiSocIA — Dre Sabine Jacot. Tous droits réservés.</span>
+        <span>Suisse romande · drsabinejacot.ch</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
