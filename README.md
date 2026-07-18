@@ -1,78 +1,82 @@
 # Site PraxiSocIA — drsabinejacot.ch
 
-Site vitrine de **PraxiSocIA** (Dre Sabine Jacot) — sociologie appliquée &
-intelligence artificielle. Site statique (HTML / CSS / JS), sans base de
-données ni framework : il s'héberge tel quel sur n'importe quel hébergement
-web, dont **Infomaniak**.
+Site vitrine de **PraxiSocIA** (Dre Sabine Jacot) — sociologie appliquée,
+formation d'adultes et intelligence artificielle. Site **statique**
+(HTML / CSS / JS), sans base de données ni framework : il s'héberge tel quel
+sur **Infomaniak** (ou tout hébergement web).
 
-## Contenu
+## Identité (charte validée)
 
-| Fichier | Page |
+- Ivoire lumineux `#F8F3E9` — fond dominant
+- Bleu paon profond `#285F63` — bandeaux, boutons, structure
+- Terracotta grisé `#B36A52` — labels, filets, soulignés, puces
+- Anthracite bleuté `#273638` — texte courant et grands titres
+- Typographie : **Fraunces** (titres) + **Inter** (corps)
+
+Le contenu textuel provient du fichier validé `PraxiSocIA_Site.md` et est
+repris **mot à mot**. Les règles microtypographiques (espaces insécables
+avant `; : ! ?` et dans les guillemets « », espace fine pour les milliers,
+demi-cadratins, italiques) sont appliquées.
+
+## Pages
+
+| Fichier | Chapitre |
 |---|---|
-| `index.html` | Accueil |
-| `a-propos.html` | À propos (parcours, titres, valeurs, posture) |
-| `prestations.html` | Prestations (4 pôles, méthodes DÉCLIC / CLÉ·IA, modalités) |
-| `recherche.html` | Recherche (mandats, ancrages théoriques) |
+| `index.html` | Accueil — Présentation |
+| `le-nom.html` | Le nom |
+| `parcours.html` | Parcours |
+| `approche-ia.html` | Une approche sociologique de l'IA |
+| `prestations.html` | Prestations (4 pôles + Formats & modalités) |
+| `publics.html` | À qui je m'adresse |
 | `contact.html` | Contact (coordonnées + formulaire) |
-| `css/style.css` | Feuille de style (identité : marine #2C3E6B, terracotta #C0653A) |
-| `js/main.js` | Menu mobile, animations, formulaire |
-| `assets/favicon.svg` | Favicon |
-| `robots.txt`, `sitemap.xml` | Référencement |
+| `mentions-legales.html` | Mentions légales & confidentialité (gabarit) |
+| `css/style.css` · `js/main.js` · `assets/favicon.svg` | Style, scripts, favicon |
+| `robots.txt` · `sitemap.xml` | Référencement |
 
 ## Prévisualiser en local
 
-Ouvrez simplement `index.html` dans un navigateur, ou lancez un petit serveur :
-
 ```bash
-python3 -m http.server 8000
-# puis http://localhost:8000
+python3 -m http.server 8000   # puis http://localhost:8000
 ```
 
 ## Mise en ligne sur Infomaniak
 
-Le site remplace la page « en construction » actuelle. Deux méthodes :
+1. **Manager Infomaniak** → Hébergement → **Gestionnaire de fichiers** (ou FTP).
+2. Dossier racine du site (souvent `web/`, `www/` ou `sites/drsabinejacot.ch/`),
+   là où se trouve la page « en construction » actuelle.
+3. Remplacez l'ancien `index.html` et téléversez **tout** le contenu de ce
+   dossier (fichiers `.html`, dossiers `css/`, `js/`, `assets/`, `robots.txt`,
+   `sitemap.xml`), en conservant la structure des dossiers.
+4. Ouvrez `https://drsabinejacot.ch`.
 
-### A. Via le Gestionnaire de fichiers (le plus simple)
-1. Connectez-vous au **Manager Infomaniak** → votre **Hébergement Web**.
-2. Ouvrez **Gestionnaire de fichiers** (ou FTP).
-3. Placez-vous dans le dossier racine du site — en général `web/`, `www/` ou
-   `sites/drsabinejacot.ch/`. C'est là que se trouve la page
-   « en construction » actuelle (souvent `index.html`).
-4. **Supprimez / remplacez** l'ancien `index.html`, puis **téléversez tout le
-   contenu de ce dossier** (les fichiers `.html`, ainsi que les dossiers
-   `css/`, `js/`, `assets/`, et `robots.txt`, `sitemap.xml`).
-5. Ouvrez `https://drsabinejacot.ch` → la nouvelle page d'accueil s'affiche.
-
-### B. Via FTP (FileZilla)
-- Hôte / identifiants FTP : dans le Manager Infomaniak → Hébergement → **FTP/SSH**.
-- Glissez-déposez tous les fichiers dans le dossier racine du site.
-
-> ⚠️ Conservez la structure des dossiers telle quelle (`css/`, `js/`,
-> `assets/`) : les chemins dans les pages sont relatifs.
+### Accès FTP
+Manager → Hébergement → **FTP / SSH** → « Créer un accès FTP / SSH ».
+Notez l'hôte, l'identifiant et le mot de passe (à ne pas partager en clair).
 
 ## Formulaire de contact
 
-Par défaut, le formulaire ouvre le logiciel de messagerie du visiteur
-(`mailto:contact@drsabinejacot.ch`) — aucun réglage nécessaire, fonctionne
-partout.
+Champs : Nom* · Organisation · Type de demande* · Message*, avec honeypot
+anti-spam (pas de captcha visible). Par défaut, l'envoi ouvre le logiciel de
+messagerie du visiteur (`mailto:contact@drsabinejacot.ch`). Pour un envoi
+automatique, donner au `<form>` une vraie `action` (service de formulaire ou
+script Infomaniak).
 
-Pour un **envoi automatique** (le message arrive directement dans votre boîte
-sans que le visiteur ait un client mail), deux options :
-- **Formspree** (gratuit pour un faible volume) : créez un formulaire sur
-  formspree.io et remplacez, dans `contact.html`, `action="#"` par l'URL
-  fournie (`action="https://formspree.io/f/xxxx"`).
-- **Script PHP Infomaniak** : si l'hébergement supporte PHP, on peut ajouter un
-  petit `contact.php` qui envoie l'e-mail. Dites-le moi et je le prépare.
+## À compléter avant la mise en ligne publique (checklist de la spec)
+
+- [ ] Adresse postale dans `mentions-legales.html`
+- [ ] Nom définitif de la « boussole critique » (page Prestations)
+- [ ] Test d'envoi du formulaire vers contact@drsabinejacot.ch
+- [ ] Relecture intégrale par Sabine sur un site de préproduction
+- [x] Lien page UniNE intégré
+- [x] Liens LinkedIn et ORCID intégrés
 
 ## Personnaliser
 
-- **Couleurs / polices** : variables en haut de `css/style.css` (`:root`).
-- **Photo de Sabine** : la page « À propos » affiche un monogramme « SJ ».
-  Pour une vraie photo, déposez-la dans `assets/` et remplacez le bloc
-  `.portrait` par une balise `<img>`.
-- **Textes** : directement dans les fichiers `.html`.
+- Couleurs / typo : variables en haut de `css/style.css` (`:root`).
+- Textes : dans les fichiers `.html` (ou régénérés depuis le contenu source).
+- Images / photos : à déposer dans `assets/` et à intégrer sur demande.
 
 ---
 
-Identité tirée du dossier de présentation PraxiSocIA (juillet 2026).
-« Comprendre pour transformer. Former pour autonomiser. Chercher pour agir. »
+*PraxiSocIA — Dre Sabine Jacot · Suisse romande.*
+« Comprendre et diagnostiquer, former et transmettre, évaluer et accompagner l'action. »

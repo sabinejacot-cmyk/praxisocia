@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="PraxiSocIA">
-  <rect width="64" height="64" rx="14" fill="#4a4074"/>
+  <rect width="64" height="64" rx="12" fill="#285f63"/>
   <text x="50%" y="52%" dominant-baseline="central" text-anchor="middle"
-        font-family="Georgia, 'Times New Roman', serif" font-weight="600" font-size="30" fill="#ffffff">P</text>
-  <circle cx="46" cy="20" r="6" fill="#c76a63"/>
+        font-family="Georgia, 'Times New Roman', serif" font-weight="600" font-size="30" fill="#f8f3e9">P</text>
+  <circle cx="46" cy="20" r="6" fill="#b36a52"/>
 </svg>

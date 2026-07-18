@@ -2,7 +2,7 @@
 (function () {
   "use strict";
 
-  /* Mobile navigation toggle */
+  /* Menu mobile */
   var toggle = document.querySelector(".nav-toggle");
   var links = document.querySelector(".nav-links");
   if (toggle && links) {
@@ -11,7 +11,6 @@
       toggle.classList.toggle("open", open);
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
     });
-    // Close menu after clicking a link (mobile)
     links.querySelectorAll("a").forEach(function (a) {
       a.addEventListener("click", function () {
         links.classList.remove("open");
@@ -21,7 +20,7 @@
     });
   }
 
-  /* Reveal on scroll */
+  /* Apparition au défilement (progressive : contenu visible sans JS) */
   var revealEls = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && revealEls.length) {
     var io = new IntersectionObserver(
@@ -33,7 +32,7 @@
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
     );
     revealEls.forEach(function (el) {
       io.observe(el);
@@ -44,7 +43,7 @@
     });
   }
 
-  /* Highlight active nav link based on current page */
+  /* Lien de navigation actif */
   var path = location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll(".nav-links a").forEach(function (a) {
     var href = a.getAttribute("href");
@@ -53,33 +52,48 @@
     }
   });
 
-  /* Contact form — front-end only demo handler (no backend on Infomaniak static) */
+  /* Formulaire de contact
+     Par défaut : ouverture du logiciel de messagerie (mailto), fonctionne
+     partout sans serveur. Pour un envoi automatique, donner au formulaire
+     une vraie "action" (service de formulaire ou script Infomaniak). */
   var form = document.querySelector("#contact-form");
   if (form) {
     form.addEventListener("submit", function (e) {
-      // If the form has a real action (e.g. Infomaniak/Formspree), let it submit.
-      if (form.getAttribute("action") && form.getAttribute("action") !== "#") {
+      /* Honeypot anti-spam : si le champ caché est rempli, on ignore. */
+      var hp = form.querySelector("[name=site]");
+      if (hp && hp.value) {
+        e.preventDefault();
         return;
+      }
+      var action = form.getAttribute("action");
+      if (action && action !== "#") {
+        return; /* laisse partir vers le service configuré */
       }
       e.preventDefault();
       var status = form.querySelector(".form-status");
-      var name = (form.querySelector("[name=nom]") || {}).value || "";
-      var email = (form.querySelector("[name=email]") || {}).value || "";
-      var msg = (form.querySelector("[name=message]") || {}).value || "";
-      var subject = encodeURIComponent("Demande via le site — " + name);
+      var val = function (n) {
+        var el = form.querySelector("[name=" + n + "]");
+        return el ? el.value : "";
+      };
+      var subject = encodeURIComponent(
+        "Site PraxiSocIA — " + (val("type") || "Message") + " — " + val("nom")
+      );
       var body = encodeURIComponent(
-        "Nom : " + name + "\nEmail : " + email + "\n\n" + msg
+        "Nom : " + val("nom") + "\n" +
+        "Organisation : " + val("organisation") + "\n" +
+        "Type de demande : " + val("type") + "\n\n" +
+        val("message")
       );
       if (status) {
         status.textContent =
-          "Merci ! Votre logiciel de messagerie va s'ouvrir pour finaliser l'envoi.";
+          "Merci. Votre logiciel de messagerie va s'ouvrir pour finaliser l'envoi.";
       }
       window.location.href =
         "mailto:contact@drsabinejacot.ch?subject=" + subject + "&body=" + body;
     });
   }
 
-  /* Footer year */
+  /* Année du pied de page */
   var y = document.querySelector("#year");
   if (y) {
     y.textContent = new Date().getFullYear();
