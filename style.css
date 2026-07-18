@@ -226,7 +226,10 @@ form textarea{min-height:150px;resize:vertical;}
 .home-hero-photo{margin:0;}
 .home-hero-photo img,.portrait-photo img{width:100%;height:auto;display:block;border-radius:var(--radius);
   box-shadow:0 20px 46px -28px rgba(39,54,56,.5);}
-.portrait-photo{margin:0;max-width:320px;}
+.portrait-photo{margin:0;max-width:300px;}
+.photo-credit{margin-top:8px;font-family:var(--sans);font-size:.74rem;letter-spacing:.02em;
+  color:var(--ink-soft);text-align:right;}
+.portrait-photo .photo-credit{text-align:left;}
 
 /* ---------- Reveal ---------- */
 .js .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
