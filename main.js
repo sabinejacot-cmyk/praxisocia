@@ -44,10 +44,11 @@
   }
 
   /* Lien de navigation actif */
-  var path = location.pathname.split("/").pop() || "index.html";
+  var file = location.pathname.split("/").pop();
+  var isHome = file === "" || file === "index.html";
   document.querySelectorAll(".nav-links a").forEach(function (a) {
     var href = a.getAttribute("href");
-    if (href === path || (path === "" && href === "index.html")) {
+    if (href === file || (isHome && (href === "/" || href === "index.html"))) {
       a.classList.add("active");
     }
   });
