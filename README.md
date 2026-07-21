@@ -29,6 +29,7 @@ demi-cadratins, italiques) sont appliquées.
 | `prestations.html` | Prestations (4 pôles + Formats & modalités) |
 | `publics.html` | À qui je m'adresse |
 | `contact.html` | Contact (coordonnées + formulaire) |
+| `traducteur.html` | Démo pédagogique — traducteur visuel par la caméra (IA de vision) |
 | `mentions-legales.html` | Mentions légales & confidentialité (gabarit) |
 | `css/style.css` · `js/main.js` · `assets/favicon.svg` | Style, scripts, favicon |
 | `robots.txt` · `sitemap.xml` | Référencement |

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <script>document.documentElement.className += " js";</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traducteur visuel – démo IA · PraxiSocIA</title>
+  <meta name="description" content="Démonstration d'IA : pointez la caméra vers un objet, l'intelligence artificielle l'identifie et le traduit dans plusieurs langues. Tout se passe dans le navigateur, sans envoi d'image." />
+  <meta name="author" content="Dre Sabine Jacot" />
+  <meta property="og:title" content="Traducteur visuel – démo IA · PraxiSocIA" />
+  <meta property="og:description" content="Pointez la caméra vers un objet, l'IA l'identifie et le traduit. Une démonstration pédagogique de PraxiSocIA." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_CH" />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* --- Styles propres à la démo « Traducteur visuel » --- */
+    .tv-wrap{max-width:860px;}
+    .tv-controls{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin:0 0 22px;}
+    .tv-controls label{font-family:var(--sans);font-weight:600;font-size:.85rem;color:var(--ink-soft);}
+    .tv-controls select{font-family:var(--sans);font-size:1rem;padding:10px 14px;border-radius:10px;
+      border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;}
+    .tv-stage{position:relative;width:100%;aspect-ratio:4/3;background:#0d1516;border-radius:var(--radius);
+      overflow:hidden;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;}
+    .tv-stage video,.tv-stage canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+    .tv-stage canvas{pointer-events:none;}
+    .tv-placeholder{color:#9fb3b2;font-family:var(--sans);text-align:center;padding:24px;max-width:34ch;}
+    .tv-placeholder svg{width:48px;height:48px;margin:0 auto 12px;display:block;stroke:#6f8a89;fill:none;}
+    .tv-stage.live .tv-placeholder{display:none;}
+    .tv-status{margin:16px 0 0;font-family:var(--sans);font-size:.95rem;color:var(--ink-soft);min-height:1.4em;}
+    .tv-card{margin-top:22px;background:var(--mint);border-radius:var(--radius);padding:24px 26px;
+      display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;}
+    .tv-card .tv-label{font-family:var(--sans);font-weight:600;font-size:.72rem;letter-spacing:.12em;
+      text-transform:uppercase;color:var(--terra);width:100%;}
+    .tv-result{font-family:var(--serif);font-size:clamp(1.8rem,5vw,2.6rem);font-weight:600;color:var(--peacock);
+      line-height:1.1;margin:0;}
+    .tv-meta{font-family:var(--sans);font-size:.9rem;color:var(--ink-soft);}
+    .tv-meta b{color:var(--ink);font-weight:600;}
+    .tv-speak{margin-left:auto;background:var(--peacock);color:#fff;border:none;border-radius:50%;
+      width:52px;height:52px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:0 0 auto;
+      transition:background .2s ease,transform .2s ease;}
+    .tv-speak:hover{background:var(--peacock-light);transform:translateY(-2px);}
+    .tv-speak svg{width:24px;height:24px;fill:#fff;}
+    .tv-note{margin-top:26px;font-size:.9rem;color:var(--ink-soft);border-left:3px solid var(--terra);
+      padding:2px 0 2px 16px;}
+    .tv-note strong{color:var(--ink);}
+    @media(max-width:560px){.tv-speak{margin-left:0;}}
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a href="/" class="brand">PraxiSoc<span class="ia">IA</span></a>
+      <nav aria-label="Navigation principale">
+        <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="/">Accueil</a></li>
+          <li><a href="prestations.html">Prestations</a></li>
+          <li class="has-dropdown">
+            <button class="dropbtn" aria-haspopup="true" aria-expanded="false">Démarche</button>
+            <ul class="dropdown">
+              <li><a href="presentation.html">Présentation</a></li>
+              <li><a href="le-nom.html">Le nom</a></li>
+              <li><a href="approche-ia.html">Une approche sociologique de l'IA</a></li>
+              <li><a href="parcours.html">Parcours</a></li>
+            </ul>
+          </li>
+          <li><a href="publics.html">Publics</a></li>
+          <li><a href="contact.html" class="btn btn--primary">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="wrap narrow reveal">
+      <span class="eyebrow">Démonstration pédagogique</span>
+      <h1>Traducteur visuel</h1>
+      <p class="lead">Pointez la caméra de votre téléphone ou de votre ordinateur vers un objet du quotidien : l'intelligence artificielle l'identifie et vous en donne le nom dans la langue de votre choix. Une petite application, conçue pour illustrer en formation ce que l'IA sait faire — et comment.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap narrow tv-wrap reveal">
+
+      <div class="tv-controls">
+        <button id="tv-start" class="btn btn--primary">Démarrer la caméra</button>
+        <label for="tv-langue">Traduire en&nbsp;:</label>
+        <select id="tv-langue" aria-label="Langue de traduction"></select>
+      </div>
+
+      <div id="tv-stage" class="tv-stage">
+        <video id="tv-video" playsinline muted></video>
+        <canvas id="tv-canvas"></canvas>
+        <div class="tv-placeholder">
+          <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 7h3l2-2h10l2 2h3v12H2z"/><circle cx="12" cy="13" r="4"/>
+          </svg>
+          Autorisez l'accès à la caméra, puis pointez-la vers un objet.
+        </div>
+      </div>
+
+      <p id="tv-status" class="tv-status">Prêt. Cliquez sur « Démarrer la caméra ».</p>
+
+      <div class="tv-card">
+        <span class="tv-label">Traduction</span>
+        <p id="tv-result" class="tv-result">—</p>
+        <button id="tv-speak" class="tv-speak" hidden aria-label="Prononcer la traduction" title="Écouter">
+          <svg viewBox="0 0 24 24"><path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>
+        </button>
+        <span class="tv-meta">Objet détecté&nbsp;: <b id="tv-source">—</b> · confiance&nbsp;: <b id="tv-conf">—</b></span>
+      </div>
+
+      <p class="tv-note">
+        <strong>Comment ça marche&nbsp;?</strong> La reconnaissance des objets tourne
+        <em>directement dans votre navigateur</em> grâce à un modèle de vision (COCO-SSD, 80&nbsp;objets
+        courants). Aucune image n'est envoyée sur un serveur&nbsp;: la caméra ne quitte jamais votre appareil.
+        La traduction s'appuie sur un petit dictionnaire intégré, et la prononciation utilise la synthèse
+        vocale de votre navigateur.
+      </p>
+
+      <p style="margin-top:22px;">
+        <a href="approche-ia.html" class="btn btn--ghost">↩ Revenir à mon approche de l'IA</a>
+      </p>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">PraxiSoc<span class="ia">IA</span></div>
+          <p class="footer-place">Dre Sabine Jacot · Suisse romande</p>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="/">Accueil</a></li>
+            <li><a href="prestations.html">Prestations</a></li>
+            <li><a href="presentation.html">Présentation</a></li>
+            <li><a href="parcours.html">Parcours</a></li>
+            <li><a href="publics.html">À qui je m'adresse</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:contact@drsabinejacot.ch">contact@drsabinejacot.ch</a></li>
+            <li><a href="https://www.linkedin.com/in/sabine-jacot-phd-59706824/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://orcid.org/0000-0003-3725-4832" target="_blank" rel="noopener">ORCID</a></li>
+            <li><a href="https://www.unine.ch/socio/presentation/equipe/sabine-jacot/" target="_blank" rel="noopener">Université de Neuchâtel</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> PraxiSocIA – Dre Sabine Jacot · Suisse romande</span>
+        <span><a href="mentions-legales.html">Mentions légales &amp; confidentialité</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <!-- TensorFlow.js + modèle de détection d'objets COCO-SSD (chargés depuis un CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.3/dist/coco-ssd.min.js"></script>
+  <script src="traducteur-data.js"></script>
+  <script src="traducteur.js"></script>
+</body>
+</html>
