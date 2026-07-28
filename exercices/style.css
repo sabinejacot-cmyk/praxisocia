@@ -1,0 +1,308 @@
+/* =========================================================
+   Mes exercices de mots — feuille de style
+   Design pensé pour un enfant TSA :
+   - couleurs douces et constantes, pas de clignotements
+   - gros textes, gros boutons, mise en page identique partout
+   - le vert = juste, l'orange doux = à réessayer (jamais de rouge vif)
+   ========================================================= */
+
+:root {
+  --fond: #f2f7fb;
+  --carte: #ffffff;
+  --encre: #2b3a4a;
+  --encre-douce: #5a6b7d;
+  --bleu: #4a7fb5;
+  --bleu-fonce: #38648f;
+  --jaune: #ffd66b;
+  --vert: #3f9d6e;
+  --vert-doux: #e3f4ea;
+  --orange: #d98841;
+  --orange-doux: #fdeedd;
+  --violet: #8a6fc8;
+  --rose: #d76d9a;
+  --rayon: 22px;
+  --ombre: 0 4px 14px rgba(43, 58, 74, .12);
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+[hidden] { display: none !important; }
+
+html { font-size: 17px; }
+
+body {
+  margin: 0;
+  font-family: "Nunito", "Comic Sans MS", system-ui, sans-serif;
+  background: var(--fond);
+  color: var(--encre);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ---------- Écrans (un seul visible à la fois) ---------- */
+.ecran {
+  display: none;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 18px 18px calc(30px + env(safe-area-inset-bottom));
+  min-height: 100vh;
+  flex-direction: column;
+}
+.ecran.actif { display: flex; }
+
+/* ---------- Accueil ---------- */
+.entete-accueil { text-align: center; margin-top: 10px; }
+.mascotte { font-size: 4rem; line-height: 1; }
+h1 { font-size: 1.7rem; font-weight: 800; margin: .4em 0 .1em; }
+.total-etoiles {
+  display: inline-block;
+  background: var(--carte);
+  border-radius: 999px;
+  padding: 6px 18px;
+  font-weight: 700;
+  box-shadow: var(--ombre);
+  margin: 8px 0 0;
+}
+.consigne-accueil {
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 26px 0 14px;
+}
+
+.liste-missions { display: flex; flex-direction: column; gap: 14px; }
+
+.carte-mission {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--carte);
+  border: 3px solid transparent;
+  border-radius: var(--rayon);
+  padding: 18px 20px;
+  box-shadow: var(--ombre);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition: transform .12s ease, border-color .12s ease;
+}
+.carte-mission:active { transform: scale(.98); }
+.carte-mission:hover, .carte-mission:focus-visible { border-color: var(--bleu); }
+.carte-mission .emoji { font-size: 2.6rem; }
+.carte-mission .titre { font-size: 1.35rem; font-weight: 800; display: block; }
+.carte-mission .sous-titre { color: var(--encre-douce); font-size: .95rem; }
+.carte-mission .etoiles-mission { margin-left: auto; font-weight: 700; white-space: nowrap; }
+
+/* ---------- En-tête des écrans de jeu ---------- */
+.entete-jeu {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+.entete-jeu h2 { font-size: 1.25rem; margin: 0; }
+.btn-retour {
+  flex-shrink: 0;
+  width: 46px; height: 46px;
+  border: none;
+  border-radius: 50%;
+  background: var(--carte);
+  box-shadow: var(--ombre);
+  font-size: 1.4rem;
+  color: var(--encre);
+  cursor: pointer;
+}
+.barre-progression {
+  flex: 1;
+  height: 14px;
+  background: #dde8f2;
+  border-radius: 999px;
+  overflow: hidden;
+}
+#progression {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--bleu), var(--violet));
+  border-radius: 999px;
+  transition: width .4s ease;
+}
+.etoiles-session { font-weight: 800; white-space: nowrap; }
+
+/* ---------- Écran règle ---------- */
+.carte-regle {
+  background: var(--carte);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+  padding: 24px 22px;
+  font-size: 1.1rem;
+  margin-bottom: 22px;
+}
+.carte-regle h3 { margin-top: 0; font-size: 1.2rem; }
+.carte-regle .grosse-regle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-align: center;
+  background: var(--vert-doux);
+  border-radius: 14px;
+  padding: 14px;
+  margin: 14px 0;
+}
+.lettres-amies {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 16px 0;
+}
+.lettre-tuile {
+  width: 62px; height: 62px;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  font-weight: 800;
+  background: var(--jaune);
+  border-radius: 16px;
+  box-shadow: var(--ombre);
+}
+.exemples-regle { margin: 10px 0 0; padding-left: 0; list-style: none; }
+.exemples-regle li { margin: 10px 0; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.exemples-regle .mot-exemple { font-weight: 800; font-size: 1.2rem; }
+.btn-mini-son {
+  border: none;
+  background: #e8f0f8;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.surligne-vert  { background: #c9ecd9; border-radius: 6px; padding: 0 4px; font-weight: 800; }
+.surligne-jaune { background: var(--jaune); border-radius: 6px; padding: 0 4px; font-weight: 800; }
+
+/* ---------- Écran jeu ---------- */
+.zone-question { text-align: center; margin-top: 8px; }
+
+.btn-ecouter {
+  border: none;
+  background: var(--bleu);
+  color: #fff;
+  font: inherit;
+  font-size: 1.15rem;
+  font-weight: 800;
+  border-radius: 999px;
+  padding: 14px 26px;
+  cursor: pointer;
+  box-shadow: var(--ombre);
+}
+.btn-ecouter:active { transform: scale(.97); }
+
+.mot-a-trou {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  margin: 26px 0 10px;
+  min-height: 1.3em;
+}
+.mot-a-trou .trou {
+  display: inline-block;
+  min-width: 1.6em;
+  border-bottom: 5px dotted var(--orange);
+  color: var(--orange);
+  margin: 0 2px;
+}
+.mot-a-trou .lettre-suivante { text-decoration: underline; text-decoration-color: var(--violet); text-decoration-thickness: 4px; }
+
+.btn-indice {
+  border: none;
+  background: transparent;
+  color: var(--encre-douce);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 6px 10px;
+}
+.texte-indice {
+  background: var(--jaune);
+  border-radius: 14px;
+  padding: 10px 16px;
+  font-weight: 700;
+  display: inline-block;
+  margin: 6px auto 0;
+}
+
+.zone-reponses {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 26px;
+}
+.btn-reponse {
+  flex: 1;
+  max-width: 220px;
+  min-height: 96px;
+  border: 4px solid transparent;
+  border-radius: var(--rayon);
+  background: var(--carte);
+  box-shadow: var(--ombre);
+  font-family: inherit;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--encre);
+  cursor: pointer;
+  transition: transform .12s ease, border-color .12s, background .12s;
+}
+.btn-reponse:hover, .btn-reponse:focus-visible { border-color: var(--bleu); }
+.btn-reponse:active { transform: scale(.96); }
+.btn-reponse.juste { background: var(--vert-doux); border-color: var(--vert); color: var(--vert); }
+.btn-reponse.faux  { background: var(--orange-doux); border-color: var(--orange); color: var(--orange); }
+.btn-reponse:disabled { cursor: default; }
+
+/* ---------- Feedback ---------- */
+.zone-feedback {
+  margin-top: 24px;
+  background: var(--carte);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+  padding: 20px;
+  text-align: center;
+}
+.zone-feedback.juste { border: 3px solid var(--vert); }
+.zone-feedback.faux  { border: 3px solid var(--orange); }
+#feedback-message { font-size: 1.35rem; font-weight: 800; margin: 0 0 8px; }
+#feedback-explication { font-size: 1.1rem; margin: 0 0 16px; }
+#feedback-explication .mot-complet { font-weight: 800; font-size: 1.25rem; }
+
+/* ---------- Boutons génériques ---------- */
+.btn-grand {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: var(--rayon);
+  font: inherit;
+  font-size: 1.25rem;
+  font-weight: 800;
+  padding: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: var(--ombre);
+}
+.btn-principal { background: var(--bleu); color: #fff; }
+.btn-principal:active { background: var(--bleu-fonce); }
+.btn-secondaire { background: var(--carte); color: var(--encre); }
+
+/* ---------- Écran fin ---------- */
+.carte-fin {
+  background: var(--carte);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+  padding: 30px 24px;
+  text-align: center;
+  margin: auto 0;
+}
+.fin-emoji { font-size: 4rem; }
+#fin-score { font-size: 1.4rem; font-weight: 800; margin: 6px 0; }
+#fin-message { font-size: 1.1rem; color: var(--encre-douce); }
+
+/* ---------- Accessibilité ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

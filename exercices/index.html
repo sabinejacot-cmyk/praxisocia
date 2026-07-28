@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mes exercices de mots</title>
+  <meta name="description" content="Petits jeux pour s'entraîner : n ou m devant b, p, m — ai ou ia — ain ou ian.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#4a7fb5">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ ÉCRAN D'ACCUEIL ============ -->
+  <section id="ecran-accueil" class="ecran actif">
+    <header class="entete-accueil">
+      <div class="mascotte" aria-hidden="true">🦊</div>
+      <h1>Mes exercices de mots</h1>
+      <p class="total-etoiles">⭐ <span id="compteur-etoiles-total">0</span> étoiles gagnées</p>
+    </header>
+
+    <p class="consigne-accueil">Choisis ta mission :</p>
+
+    <div id="liste-missions" class="liste-missions">
+      <!-- Cartes générées par app.js -->
+    </div>
+  </section>
+
+  <!-- ============ ÉCRAN RÈGLE ============ -->
+  <section id="ecran-regle" class="ecran">
+    <header class="entete-jeu">
+      <button class="btn-retour" data-action="accueil" aria-label="Retour à l'accueil">←</button>
+      <h2 id="regle-titre"></h2>
+    </header>
+    <div id="regle-contenu" class="carte-regle"></div>
+    <button id="btn-commencer" class="btn-grand btn-principal">C'est parti ! 🚀</button>
+  </section>
+
+  <!-- ============ ÉCRAN JEU ============ -->
+  <section id="ecran-jeu" class="ecran">
+    <header class="entete-jeu">
+      <button class="btn-retour" data-action="accueil" aria-label="Retour à l'accueil">←</button>
+      <div class="barre-progression" aria-hidden="true"><div id="progression"></div></div>
+      <span class="etoiles-session">⭐ <span id="etoiles-session">0</span></span>
+    </header>
+
+    <div class="zone-question">
+      <button id="btn-ecouter" class="btn-ecouter" type="button">🔊 Écouter le mot</button>
+
+      <p id="mot-a-trou" class="mot-a-trou" aria-live="polite"></p>
+
+      <button id="btn-indice" class="btn-indice" type="button">💡 Indice</button>
+      <p id="texte-indice" class="texte-indice" hidden></p>
+    </div>
+
+    <div id="zone-reponses" class="zone-reponses">
+      <!-- Deux gros boutons générés par app.js -->
+    </div>
+
+    <div id="zone-feedback" class="zone-feedback" hidden>
+      <p id="feedback-message"></p>
+      <p id="feedback-explication"></p>
+      <button id="btn-continuer" class="btn-grand btn-principal">Continuer →</button>
+    </div>
+  </section>
+
+  <!-- ============ ÉCRAN FIN ============ -->
+  <section id="ecran-fin" class="ecran">
+    <div class="carte-fin">
+      <div id="fin-emoji" class="fin-emoji" aria-hidden="true">🎉</div>
+      <h2 id="fin-titre">Bravo !</h2>
+      <p id="fin-score"></p>
+      <p id="fin-message"></p>
+      <button id="btn-rejouer" class="btn-grand btn-principal">Rejouer 🔁</button>
+      <button class="btn-grand btn-secondaire" data-action="accueil">Changer de mission</button>
+    </div>
+  </section>
+
+  <script src="mots.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
